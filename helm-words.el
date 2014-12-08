@@ -18,23 +18,6 @@
 (require 'eww nil t)
 
 
-;; Definition of all the dictionaries and their actions
-(defvar helm-words-dictionaries)
-(setq helm-words-dictionaries '(
-                                ("en". ("English"
-                                        ("Emacs Dictionary" dictionary-search)
-                                        ("English Dictionary" "http://dictionary.reference.com/browse/%s?s=t")
-                                        ("Thesaurus" "http://www.thesaurus.com/browse/%s?s=t")
-                                        ("English-Polish Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=ang-pol&x=38&y=9")
-                                        ))
-                                ("pl" . ("Polish"
-                                         ("Nothing" helm-words-dict-pl-search)
-                                         ("Polish Dictionary" "http://sjp.pwn.pl/szukaj/%s.html")
-                                         ("Thesaurus" "http://www.synonimy.pl/synonim/%s/")
-                                         ("Polish-English Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=pol-ang&x=39&y=8")))
-                                ))
-
-
 (defun helm-words-dict-pl-search (word)
   "Show results from the dict.pl dictionary for the given WORD."
   (interactive "sWord: ")
@@ -67,6 +50,26 @@
     (display-buffer buf)
     (switch-to-buffer-other-window buf)
     ))
+
+
+
+;; Definition of all the dictionaries and their actions
+(defvar helm-words-dictionaries)
+(setq helm-words-dictionaries '(
+                                ("en". ("English"
+                                        ("Emacs Dictionary" dictionary-search)
+                                        ("English Dictionary" "http://dictionary.reference.com/browse/%s?s=t")
+                                        ("Thesaurus" "http://www.thesaurus.com/browse/%s?s=t")
+                                        ("English-Polish Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=ang-pol&x=38&y=9")
+                                        ))
+                                ("pl" . ("Polish"
+                                         ("Emacs Dict.pl" helm-words-dict-pl-search)
+                                         ("Polish Dictionary" "http://sjp.pwn.pl/szukaj/%s.html")
+                                         ("Thesaurus" "http://www.synonimy.pl/synonim/%s/")
+                                         ("Polish-English Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=pol-ang&x=39&y=8")))
+                                ))
+
+
 
 
 (defun helm-words--get-candidates ()
