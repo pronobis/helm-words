@@ -1,4 +1,4 @@
-;;; helm-words.el -- Helm module for looking up words in dictionaries and thesauri.
+;;; helm-words.el -- Helm extension for looking up words in dictionaries and thesauri.
 ;;; Commentary:
 ;;;
 ;;; Code:
@@ -10,12 +10,34 @@
 ;; Requires
 (require 'helm)
 (require 'ispell)
+(require 'xml)
+(require 'browse-url)
 
 ;; Soft requires since only used for default settings which can
 ;; be changed by the user.
 (require 'dictionary nil t)
 (require 'shr nil t)
 (require 'eww nil t)
+
+
+(defgroup helm-words nil
+  "Helm extension for looking up words in dictionaries and thesauri."
+  :group 'helm)
+
+
+(defcustom helm-words-dictionaries
+  '(("en". ("English"
+            ("Emacs Dictionary" dictionary-search)
+            ("English Dictionary" "http://dictionary.reference.com/browse/%s?s=t")
+            ("Thesaurus" "http://www.thesaurus.com/browse/%s?s=t")
+            ("English-Polish Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=ang-pol&x=38&y=9")))
+    ("pl" . ("Polish"
+             ("Emacs Dict.pl" helm-words-dict-pl-search)
+             ("Polish Dictionary" "http://sjp.pwn.pl/szukaj/%s.html")
+             ("Thesaurus" "http://www.synonimy.pl/synonim/%s/")
+             ("Polish-English Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=pol-ang&x=39&y=8"))))
+  "ASpell dictionaries to search the words in and their configuration."
+  :group 'helm-words)
 
 
 (defun helm-words-dict-pl-search (word)
@@ -50,26 +72,6 @@
     (display-buffer buf)
     (switch-to-buffer-other-window buf)
     ))
-
-
-
-;; Definition of all the dictionaries and their actions
-(defvar helm-words-dictionaries)
-(setq helm-words-dictionaries '(
-                                ("en". ("English"
-                                        ("Emacs Dictionary" dictionary-search)
-                                        ("English Dictionary" "http://dictionary.reference.com/browse/%s?s=t")
-                                        ("Thesaurus" "http://www.thesaurus.com/browse/%s?s=t")
-                                        ("English-Polish Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=ang-pol&x=38&y=9")
-                                        ))
-                                ("pl" . ("Polish"
-                                         ("Emacs Dict.pl" helm-words-dict-pl-search)
-                                         ("Polish Dictionary" "http://sjp.pwn.pl/szukaj/%s.html")
-                                         ("Thesaurus" "http://www.synonimy.pl/synonim/%s/")
-                                         ("Polish-English Dictionary" "http://portalwiedzy.onet.pl/tlumacz.html?qs=%s&tr=pol-ang&x=39&y=8")))
-                                ))
-
-
 
 
 (defun helm-words--get-candidates ()
