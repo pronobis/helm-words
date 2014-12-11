@@ -11,10 +11,13 @@ Moreover, the package provides an emacs integration with one particular online d
 Usage
 -----
 To use, just invoke `helm-words` and start typing a word. The word will be matched to all specified dictionaries as shown below:
-![](https://github.com/pronobis/helm-flyspell/blob/master/images/screenshot1.png)
+![](https://github.com/pronobis/helm-words/blob/master/images/screenshot1.png)
 
 Once a selection is made (for a word and a language), a dictionary can be invoked using the persistent action or by selecting from one of the additional actions:
-![](https://github.com/pronobis/helm-flyspell/blob/master/images/screenshot2.png)
+![](https://github.com/pronobis/helm-words/blob/master/images/screenshot2.png)
+
+The package also contains a parser for the the online dictionary (http://dict.pl) which in the example below is used as a default action for Polish words and results in a buffer like this:
+![](https://github.com/pronobis/helm-words/blob/master/images/screenshot3.png)
 
 
 Configuration
