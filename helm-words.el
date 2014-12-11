@@ -16,6 +16,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Please see https://github.com/pronobis/helm-words for a documentation.
 
 ;;; Code:
 
