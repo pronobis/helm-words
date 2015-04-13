@@ -57,6 +57,7 @@
   :group 'helm-words)
 
 
+;;;###autoload
 (defun helm-words-dict-pl-search (word)
   "Show results from the dict.pl dictionary for the given WORD."
   (interactive "sWord: ")
@@ -174,6 +175,7 @@
     sources))
 
 
+;;;###autoload
 (defun helm-words ()
   "Run helm-words."
   (interactive)
@@ -182,6 +184,7 @@
         :prompt "Word: "))
 
 
+;;;###autoload
 (defun helm-words-at-point ()
   "Run helm-words with thing at point."
   (interactive)
