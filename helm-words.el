@@ -1,4 +1,4 @@
-;;; helm-words.el -- Helm extension for looking up words in dictionaries and thesauri.
+;;; helm-words.el --- Helm extension for looking up words in dictionaries and thesauri.
 
 ;; Copyright (C) 2014 Andrzej Pronobis <a.pronobis@gmail.com>
 
