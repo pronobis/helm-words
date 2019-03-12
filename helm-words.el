@@ -1,6 +1,7 @@
-;;; helm-words.el -- Helm extension for looking up words in dictionaries and thesauri.
+;;; helm-words.el --- Helm extension for looking up words in dictionaries and thesauri.
 
 ;; Copyright (C) 2014 Andrzej Pronobis <a.pronobis@gmail.com>
+;; Package-Requires: ((emacs "24.4") (helm "1.7.7") (dictionary "1.10"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -30,11 +31,9 @@
 (require 'xml)
 (require 'browse-url)
 
-;; Soft requires since only used for default settings which can
-;; be changed by the user.
-(require 'dictionary nil t)
-(require 'shr nil t)
-(require 'eww nil t)
+(require 'dictionary)
+(require 'shr)
+(require 'eww)
 
 
 (defgroup helm-words nil
